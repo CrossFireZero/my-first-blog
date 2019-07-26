@@ -7,3 +7,4 @@ db.sqlite3
 .DS_Store
 api_pythonanywhere.txt
 requirements.txt
+blog/migrations

@@ -11,6 +11,10 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    TYPES = (('n','news'), ('w','warning'), ('e','event'))
+
+    type = models.CharField(max_length=10, choices=TYPES, default='n')
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
