@@ -26,6 +26,7 @@ SECRET_KEY = 'eljgcaea)1yd)bao-sqqk(mhwu74^f)2+67)&u^rp+e^dmoa5z'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
+                 'localhost',
                  '192.168.1.69',
                  'sabotage.pythonanywhere.com',
 ]
@@ -102,6 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# If login os successful redirect to a top-level index
+LOGIN_REDIRECT_URL = '/'
 
 
 # Internationalization
