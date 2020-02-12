@@ -8,7 +8,7 @@ def simple(request):
         form = SnippetForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/editor')
     else:
         form = SnippetForm()
     return render(request, "snippets.html", {
