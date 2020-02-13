@@ -34,12 +34,12 @@ def simple(request):
         # print(os.path.abspath(os.getcwd()))
 
         # запускает python из среды zip и выполняет подготовленный скрипт
-        process = subprocess.Popen (["..\Zipline\env\zip\Scripts\python.exe", "temp.py"], stdout=subprocess.PIPE)
+        process = subprocess.Popen (["..\Zipline\env\zip\Scripts\python.exe", "-W ignore", "temp.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
         data = process.communicate()
         
 
         # выводы print() скрипта
-        output = "\n".join(str(data[0]).split(r'\r\n'))[2:-2]
+        output = "; ".join(str(data[0]).split(r'\r\n'))[2:-2]
 
         form = SnippetForm(query_dict)
         # form.save()
