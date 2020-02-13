@@ -15,5 +15,14 @@
     <hr/>
     <pre>{{ snippet.text }}</pre>
     {% endfor %}
+
+    {% autoescape off %}
+    {{ output }}
+    {% endautoescape %}
+
+    {% autoescape off %}
+    {{ plot_div }}
+    {% endautoescape %}
+
 </body>
 </html>
