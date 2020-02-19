@@ -10,7 +10,7 @@ import cufflinks as cf
 
 # для запуска shell команд
 import subprocess
-import os
+# import os
 from pprint import pprint
 
 def simple(request):
@@ -49,6 +49,10 @@ def simple(request):
         # plot_div = plot([{'x': df.index, 'y': df[col], 'name': col}  for col in df.columns], output_type='div')
         plot_div = plot([{'x': df.index, 'y': df['portfolio_value'], 'name': 'portfolio'}], output_type='div')
         
+        with open("plot_div", 'w') as f:
+            f.write(plot_div)
+        # pprint(plot_div)
+
         # пример отрисовки графика с помощью plotly
         # x_data = [0,1,2,3]
         # y_data = [x**2 for x in x_data]
@@ -57,7 +61,10 @@ def simple(request):
         #                 opacity=0.8, marker_color='green')],
         #                 output_type='div')
         # return render(request, "/editor", context={'plot_div': plot_div})
-        return render(request, "snippets.html", context={"form": form, "snippets": "", "output": output, "plot_div": plot_div})
+        with open("plot_div", 'r') as f:
+            plot_div = f.read()
+            # pprint(plot_div)
+            return render(request, "snippets.html", context={"form": form, "snippets": "", "output": output, "plot_div": plot_div})
 
     else:
         form = SnippetForm()
