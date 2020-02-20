@@ -6,6 +6,7 @@ import pandas as pd
 from plotly.offline import plot, iplot
 import plotly.graph_objects as go
 import cufflinks as cf
+from django.contrib.auth.decorators import login_required
 
 
 # для запуска shell команд
@@ -13,6 +14,7 @@ import subprocess
 # import os
 from pprint import pprint
 
+@login_required
 def simple(request):
 
     if request.method == 'POST':
