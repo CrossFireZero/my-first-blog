@@ -6,7 +6,9 @@ class SnippetForm(forms.ModelForm):
     class Meta:
         model = Snippet
         widgets = {
-            "text": AceWidget(mode='python', theme='twilight',
-                              showinvisibles=True, tabsize=4),
+            "text": AceWidget(mode='python', theme='twilight', 
+                              showinvisibles=True, tabsize=4,
+                              width="800px", height="600px",
+                             ),
         }
         exclude = ()
